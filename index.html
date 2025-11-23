@@ -379,84 +379,66 @@
       color: var(--primary-dark);
     }
 
-    /* Portfolio Section */
+    /* Portfolio Section - Same as Services */
     .portfolio {
       background: var(--light-bg);
     }
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 35px;
       max-width: 1200px;
       margin: 0 auto;
     }
     .portfolio-item {
       background: white;
+      border: 2px solid transparent;
       border-radius: 20px;
-      padding: 0;
-      position: relative;
-      overflow: hidden;
+      padding: 45px 35px;
+      text-align: center;
       transition: all 0.4s ease;
-      height: 380px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     }
-    .portfolio-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .portfolio-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(74, 144, 226, 0.95) 0%, rgba(74, 144, 226, 0.4) 50%, transparent 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 35px;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-    .portfolio-item:hover .portfolio-overlay {
-      opacity: 1;
-    }
-    .portfolio-item:hover img {
-      transform: scale(1.15);
-    }
     .portfolio-item:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 20px 50px rgba(74, 144, 226, 0.3);
+      transform: translateY(-10px);
+      border-color: var(--accent-light);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
     }
-    .project-category {
-      position: absolute;
-      top: 25px;
-      right: 25px;
-      background: var(--btn-gradient);
-      color: white;
-      padding: 8px 20px;
-      border-radius: 25px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      z-index: 2;
-      box-shadow: 0 4px 14px rgba(74, 144, 226, 0.4);
+    .portfolio-item .icon {
+      width: 70px;
+      height: 70px;
+      background: var(--gradient-bg);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 25px;
+      color: var(--primary-dark);
+      box-shadow: 0 8px 16px rgba(174, 205, 254, 0.4);
     }
     .portfolio-item h4 {
       font-family: 'Poppins', sans-serif;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      color: white;
-      margin-bottom: 12px;
+      color: var(--dark);
+      margin-bottom: 18px;
     }
-    .view-project {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.05rem;
-      transition: all 0.3s ease;
+    .portfolio-item p {
+      color: var(--text-gray);
+      font-size: 0.98rem;
+      margin-bottom: 25px;
+      line-height: 1.8;
+    }
+    .project-category {
       display: inline-block;
-    }
-    .view-project:hover {
-      transform: translateX(8px);
+      background: var(--btn-gradient);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
     /* Testimonials Section */
@@ -858,66 +840,60 @@
     </div>
   </section>
 
-  <!-- Portfolio Section -->
+  <!-- Portfolio Section - Same Theme as Services -->
   <section class="portfolio" id="portfolio">
-    <h3 data-aos="fade-up">Recent Work</h3>
+    <h3 data-aos="fade-up">Recent Projects</h3>
     <div class="portfolio-grid">
+      
       <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&h=400&fit=crop" alt="Medical Management">
-        <span class="project-category">App</span>
-        <div class="portfolio-overlay">
-          <h4>Medimange Desktop App</h4>
-          <a href="#" class="view-project">View Project →</a>
-        </div>
+        <div class="icon">💊</div>
+        <span class="project-category">Healthcare</span>
+        <h4>MediNote</h4>
+        <p>Smart Prescription & Patient Care System - Modern mobile solution for doctors with AI insights, multilingual support, and offline storage.</p>
       </div>
+
       <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=500&h=400&fit=crop" alt="Mobile Healthcare">
-        <span class="project-category">App</span>
-        <div class="portfolio-overlay">
-          <h4>Medimange Mobile App</h4>
-          <a href="#" class="view-project">View Project →</a>
-        </div>
+        <div class="icon">💪</div>
+        <span class="project-category">Fitness</span>
+        <h4>GymManagement</h4>
+        <p>Member & Workout Tracking App - Professional gym management with Flutter + Firebase for attendance, progress tracking and performance analytics.</p>
       </div>
+
       <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300">
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=400&fit=crop" alt="Home Healthcare">
-        <span class="project-category">Web</span>
-        <div class="portfolio-overlay">
-          <h4>Your Home Our Care</h4>
-          <a href="#" class="view-project">View Project →</a>
-        </div>
+        <div class="icon">⏰</div>
+        <span class="project-category">Healthcare</span>
+        <h4>MediTracker</h4>
+        <p>Medicine Reminder & Health Monitoring - Personal health companion with timely reminders, dosage tracking, and SMS/WhatsApp alerts.</p>
       </div>
+
       <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=400&fit=crop" alt="Bike Rental">
-        <span class="project-category">App</span>
-        <div class="portfolio-overlay">
-          <h4>Ridengo</h4>
-          <a href="#" class="view-project">View Project →</a>
-        </div>
+        <div class="icon">👔</div>
+        <span class="project-category">Retail</span>
+        <h4>Textile Management</h4>
+        <p>Complete solution for textile shops with inventory, billing, stock tracking, customer orders, and business insights.</p>
       </div>
+
       <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=400&fit=crop" alt="Text Editor">
-        <span class="project-category">App</span>
-        <div class="portfolio-overlay">
-          <h4>Textlite App</h4>
-          <a href="#" class="view-project">View Project →</a>
-        </div>
+        <div class="icon">🏠</div>
+        <span class="project-category">Services</span>
+        <h4>Your Home Our Care</h4>
+        <p>Home Services Booking App - Marketplace for booking cleaning, electrician, plumber, salon services with location search and ratings.</p>
       </div>
+
       <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300">
-        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=400&fit=crop" alt="Hotel Booking">
-        <span class="project-category">Web</span>
-        <div class="portfolio-overlay">
-          <h4>Vila Booking System</h4>
-          <a href="#" class="view-project">View Project →</a>
-        </div>
+        <div class="icon">🚗</div>
+        <span class="project-category">Transport</span>
+        <h4>Ride N Go</h4>
+        <p>Smart Ride Booking App - Fast ride-hailing platform with live tracking, driver assignment, fare estimation, and ride history.</p>
       </div>
+
       <div class="portfolio-item" data-aos="fade-up" data-aos-delay="400">
-        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&h=400&fit=crop" alt="Gym Management">
-        <span class="project-category">App</span>
-        <div class="portfolio-overlay">
-          <h4>Gymmange</h4>
-          <a href="#" class="view-project">View Project →</a>
-        </div>
+        <div class="icon">🏥</div>
+        <span class="project-category">Healthcare</span>
+        <h4>Medivision Software</h4>
+        <p>Medical Store Management - Complete pharmacy software with billing, stock management, expiry alerts, and barcode scanning.</p>
       </div>
+
     </div>
   </section>
 
@@ -1023,7 +999,6 @@
   <!-- AOS Animation Library -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    // Initialize AOS
     AOS.init({
       duration: 800,
       easing: 'ease-in-out',
@@ -1031,13 +1006,11 @@
       offset: 100
     });
 
-    // Navbar scroll effect
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('navbar');
       nav.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
     mobileMenuBtn.addEventListener('click', () => {
@@ -1045,7 +1018,6 @@
       mobileMenuBtn.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
     });
 
-    // Close mobile menu on link click
     document.querySelectorAll('.nav-menu a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -1053,7 +1025,6 @@
       });
     });
 
-    // Contact Form Submission
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
@@ -1082,7 +1053,6 @@
       }, 5000);
     });
 
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
