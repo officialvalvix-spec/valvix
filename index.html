@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VALVIX TECH – We See Value, Not Price | India's Leading Tech Innovators</title>
+  <link rel="icon" type="image/png" href="valvix.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #0A0F24;
+      --dark-navy: #0d1b2a;
+      --secondary: #0056FF;
+      --accent: #00FFD1;
+      --cyan-bright: #00D9FF;
+      --text-light: #E6E8EF;
+      --subtext: #A1A6B3;
+      --gradient-bg: linear-gradient(135deg, #0A0F24 0%, #0d1b2a 50%, #1b263b 100%);
+      --btn-gradient: linear-gradient(90deg, #0056FF 0%, #00FFD1 100%);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gradient-bg);
+      color: var(--text-light);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Starfield Background */
+    .starfield {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      padding: 20px 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      backdrop-filter: blur(20px);
+      background: rgba(10, 15, 36, 0.7);
+      border-bottom: 1px solid rgba(0, 255, 209, 0.1);
+      transition: all 0.3s ease;
+    }
+    nav.scrolled {
+      padding: 15px 5%;
+      background: rgba(10, 15, 36, 0.95);
+      box-shadow: 0 10px 30px rgba(0, 86, 255, 0.1);
+    }
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo img { 
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(1.2) drop-shadow(0 0 12px rgba(0,217,255,0.5));
+    }
+    .logo-text {
+      background: linear-gradient(90deg, #0056FF 0%, #00D9FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 3px;
+    }
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    .nav-menu a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .nav-menu a:hover {
+      color: var(--cyan-bright);
+      text-shadow: 0 0 10px var(--cyan-bright);
+    }
+    .nav-menu .nav-cta {
+      background: var(--btn-gradient);
+      color: var(--primary);
+      font-weight: 700;
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.4);
+    }
+    .nav-menu .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 30px rgba(0, 217, 255, 0.6);
+    }
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.8rem;
+      color: var(--cyan-bright);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 5% 80px;
+      background: radial-gradient(ellipse at center, rgba(0, 86, 255, 0.15) 0%, transparent 70%),
+                  linear-gradient(135deg, #0A0F24 0%, #0d1b2a 50%, #1b263b 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 1000px;
+    }
+    .hero-logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 7rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, #2563EB 0%, #00D9FF 50%, #00FFD1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 10px;
+      margin-bottom: 20px;
+      line-height: 1;
+      text-transform: uppercase;
+      filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.5));
+    }
+    .hero-tagline {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, #3B82F6 0%, #00D9FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+    }
+    .hero-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #C7D2FE;
+      margin-bottom: 50px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-secondary {
+      padding: 18px 45px;
+      font-size: 1.1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #2563EB 0%, #00D9FF 100%);
+      color: #fff;
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.6);
+      background: linear-gradient(90deg, #3B82F6 0%, #00E5FF 100%);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--cyan-bright);
+      border: 2px solid var(--cyan-bright);
+      box-shadow: 0 8px 30px rgba(0, 217, 255, 0.2);
+    }
+    .btn-secondary:hover {
+      background: rgba(0, 217, 255, 0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0, 217, 255, 0.4);
+      border-color: #00E5FF;
+      color: #00E5FF;
+    }
+
+    /* Sections Common Styles */
+    section {
+      padding: 80px 5%;
+      position: relative;
+      z-index: 2;
+    }
+    section h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 60px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, #3B82F6 0%, #00D9FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Trusted By Section */
+    .trusted {
+      background: rgba(10, 15, 36, 0.4);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      padding: 60px 5%;
+      border-top: 1px solid rgba(0, 217, 255, 0.1);
+    }
+    .trusted h4 {
+      font-size: 1.3rem;
+      color: var(--cyan-bright);
+      margin-bottom: 40px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .trusted-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .trusted-logos img {
+      height: 50px;
+      opacity: 0.6;
+      filter: brightness(0) invert(1);
+      transition: all 0.3s ease;
+    }
+    .trusted-logos img:hover {
+      opacity: 1;
+      filter: brightness(1) invert(0) drop-shadow(0 0 15px rgba(0, 217, 255, 0.6));
+      transform: scale(1.15);
+    }
+
+    /* Services Section */
+    .services {
+      background: transparent;
+    }
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: rgba(13, 27, 42, 0.6);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(0, 217, 255, 0.2);
+      border-radius: 25px;
+      padding: 45px 35px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 217, 255, 0.15) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .service-card:hover::before {
+      opacity: 1;
+    }
+    .service-card:hover {
+      transform: translateY(-12px);
+      border-color: var(--cyan-bright);
+      box-shadow: 0 20px 50px rgba(0, 217, 255, 0.4);
+    }
+    .service-card .icon {
+      font-size: 4rem;
+      margin-bottom: 25px;
+      filter: drop-shadow(0 0 15px var(--cyan-bright));
+    }
+    .service-card h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--cyan-bright);
+      margin-bottom: 18px;
+    }
+    .service-card p {
+      color: #C7D2FE;
+      font-size: 1.05rem;
+      margin-bottom: 25px;
+      line-height: 1.8;
+    }
+    .learn-more {
+      color: var(--cyan-bright);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .learn-more:hover {
+      color: #fff;
+      text-shadow: 0 0 15px var(--cyan-bright);
+      transform: translateX(8px);
+    }
+
+    /* Why Choose Section */
+    .why-choose {
+      background: rgba(0, 86, 255, 0.08);
+      backdrop-filter: blur(15px);
+      border-radius: 35px;
+      margin: 0 5%;
+      padding: 70px 5%;
+      border: 1px solid rgba(0, 217, 255, 0.15);
+    }
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 35px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .highlight {
+      background: rgba(13, 27, 42, 0.7);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(0, 217, 255, 0.25);
+      border-radius: 20px;
+      padding: 35px 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .highlight:hover {
+      transform: translateY(-8px);
+      border-color: var(--cyan-bright);
+      box-shadow: 0 15px 40px rgba(0, 217, 255, 0.3);
+    }
+    .highlight-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 12px var(--cyan-bright));
+    }
+    .highlight h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cyan-bright);
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      background: transparent;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 35px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .portfolio-item {
+      background: rgba(13, 27, 42, 0.6);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(0, 86, 255, 0.3);
+      border-radius: 25px;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      height: 380px;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 15, 36, 0.98) 0%, rgba(10, 15, 36, 0.5) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 35px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.15);
+    }
+    .portfolio-item:hover {
+      transform: translateY(-12px);
+      border-color: var(--cyan-bright);
+      box-shadow: 0 20px 50px rgba(0, 217, 255, 0.4);
+    }
+    .project-category {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      background: linear-gradient(90deg, #2563EB 0%, #00D9FF 100%);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      z-index: 2;
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+    }
+    .portfolio-item h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+    .view-project {
+      color: var(--cyan-bright);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .view-project:hover {
+      color: #fff;
+      text-shadow: 0 0 15px var(--cyan-bright);
+      transform: translateX(8px);
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      background: rgba(0, 86, 255, 0.08);
+      backdrop-filter: blur(15px);
+      border-radius: 35px;
+      margin: 0 5%;
+      padding: 70px 5%;
+      border: 1px solid rgba(0, 217, 255, 0.15);
+    }
+    .testimonial-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .testimonial-card {
+      background: rgba(13, 27, 42, 0.7);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(0, 217, 255, 0.25);
+      border-radius: 20px;
+      padding: 40px 35px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 15px;
+      left: 25px;
+      font-size: 5rem;
+      color: var(--cyan-bright);
+      opacity: 0.15;
+      font-family: Georgia, serif;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--cyan-bright);
+      box-shadow: 0 15px 40px rgba(0, 217, 255, 0.3);
+    }
+    .testimonial-card p {
+      color: #C7D2FE;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+    .author {
+      color: var(--cyan-bright);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* About Section */
+    .about {
+      background: transparent;
+      text-align: center;
+    }
+    .about-mission, .about-vision {
+      max-width: 850px;
+      margin: 0 auto 35px;
+      font-size: 1.25rem;
+      color: #C7D2FE;
+      line-height: 1.9;
+    }
+    .about-mission {
+      color: var(--cyan-bright);
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: transparent;
+      text-align: center;
+    }
+    .contact-form {
+      max-width: 650px;
+      margin: 0 auto 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 18px 25px;
+      font-size: 1.05rem;
+      font-family: 'Inter', sans-serif;
+      background: rgba(13, 27, 42, 0.6);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(0, 217, 255, 0.25);
+      border-radius: 15px;
+      color: var(--text-light);
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #8B9DC3;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--cyan-bright);
+      box-shadow: 0 0 25px rgba(0, 217, 255, 0.3);
+    }
+    .contact-form textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
+    .contact-info {
+      max-width: 650px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-info p {
+      font-size: 1.15rem;
+      margin-bottom: 18px;
+      color: #C7D2FE;
+    }
+    .contact-info a {
+      color: var(--cyan-bright);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .contact-info a:hover {
+      color: #fff;
+      text-shadow: 0 0 15px var(--cyan-bright);
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 35px;
+    }
+    .social-icons a {
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    .social-icons a:hover {
+      transform: translateY(-8px);
+    }
+    .social-icons img {
+      width: 48px;
+      height: 48px;
+      filter: drop-shadow(0 0 15px rgba(0, 217, 255, 0.4));
+      transition: all 0.3s ease;
+    }
+    .social-icons a:hover img {
+      filter: drop-shadow(0 0 25px rgba(0, 217, 255, 0.7));
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      background: linear-gradient(90deg, #10B981 0%, #059669 100%);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 12px;
+      margin-top: 20px;
+      font-weight: 600;
+      box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
+    }
+    .success-message.show {
+      display: block;
+      animation: slideIn 0.5s ease;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* CTA Section */
+    .cta {
+      background: rgba(0, 86, 255, 0.1);
+      backdrop-filter: blur(15px);
+      padding: 90px 5%;
+      text-align: center;
+      border-top: 1px solid rgba(0, 217, 255, 0.2);
+      border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+    }
+    .cta h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    .cta .btn-primary {
+      font-size: 1.25rem;
+      padding: 20px 55px;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(10, 15, 36, 0.95);
+      backdrop-filter: blur(25px);
+      padding: 70px 5% 35px;
+      border-top: 1px solid rgba(0, 217, 255, 0.15);
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 45px;
+      max-width: 1200px;
+      margin: 0 auto 50px;
+    }
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .footer-logo img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(1.2) drop-shadow(0 0 15px rgba(0,217,255,0.5));
+    }
+    .footer-logo .slogan {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.15rem;
+      color: var(--cyan-bright);
+      font-weight: 600;
+    }
+    .footer-links h4,
+    .footer-social h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cyan-bright);
+      margin-bottom: 25px;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links ul li {
+      margin-bottom: 15px;
+    }
+    .footer-links ul li a {
+      color: #C7D2FE;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .footer-links ul li a:hover {
+      color: var(--cyan-bright);
+      text-shadow: 0 0 12px var(--cyan-bright);
+      padding-left: 8px;
+    }
+    .footer-social .social-icons {
+      gap: 25px;
+      justify-content: flex-start;
+      margin-top: 0;
+    }
+    .footer-copyright {
+      text-align: center;
+      padding-top: 35px;
+      border-top: 1px solid rgba(0, 217, 255, 0.15);
+      color: #8B9DC3;
+      font-size: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 75%;
+        height: 100vh;
+        background: rgba(10, 15, 36, 0.98);
+        backdrop-filter: blur(25px);
+        flex-direction: column;
+        padding: 50px 25px;
+        transition: right 0.3s ease;
+        border-left: 1px solid rgba(0, 217, 255, 0.25);
+      }
+      .nav-menu.active {
+        right: 0;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .hero-logo {
+        font-size: 4rem;
+        letter-spacing: 6px;
+      }
+      .hero-tagline {
+        font-size: 1.8rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      section h3 {
+        font-size: 2.2rem;
+      }
+      .service-cards,
+      .highlights,
+      .portfolio-grid,
+      .testimonial-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Starfield Background -->
+  <div class="starfield" id="starfield"></div>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="logo">
+      <img src="valvix.png" alt="VALVIX Logo" onerror="this.style.display='none';">
+      <span class="logo-text">VALVIX</span>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <div class="mobile-menu-btn" id="mobileMenuBtn">☰</div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <div class="hero-logo">VALVIX</div>
+      <div class="hero-tagline">We See Value, Not Price</div>
+      <p class="hero-subtitle">Empowering businesses with futuristic app, web, and automation solutions that drive growth and innovation.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Get a Quote</a>
+        <a href="#portfolio" class="btn-secondary">View Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted By Section -->
+  <section class="trusted">
+    <h4 data-aos="fade-up">Trusted by Industry Leaders</h4>
+    <div class="trusted-logos" data-aos="fade-up" data-aos-delay="200">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <h3 data-aos="fade-up">Our Services</h3>
+    <div class="service-cards">
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon">📱</div>
+        <h4>App Development</h4>
+        <p>Custom apps for Android, iOS, and Flutter with seamless UI/UX, fast performance, and scalable architecture.</p>
+        <a href="#" class="learn-more">Learn More →</a>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon">🌐</div>
+        <h4>Web Development</h4>
+        <p>From websites to complex platforms with scalable performance, modern frameworks, and responsive design.</p>
+        <a href="#" class="learn-more">Learn More →</a>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon">🎨</div>
+        <h4>UI/UX Design</h4>
+        <p>Clean, intuitive interfaces for unforgettable user experiences that blend beauty with functionality.</p>
+        <a href="#" class="learn-more">Learn More →</a>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="icon">⚙</div>
+        <h4>Automation</h4>
+        <p>Streamline operations using AI and smart systems that boost efficiency and reduce manual workload.</p>
+        <a href="#" class="learn-more">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose VALVIX -->
+  <section class="why-choose">
+    <h3 data-aos="fade-up">Why Choose VALVIX?</h3>
+    <div class="highlights">
+      <div class="highlight" data-aos="zoom-in" data-aos-delay="100">
+        <div class="highlight-icon">💡</div>
+        <h4>Innovation-Driven</h4>
+      </div>
+      <div class="highlight" data-aos="zoom-in" data-aos-delay="200">
+        <div class="highlight-icon">🎯</div>
+        <h4>100% Client Satisfaction</h4>
+      </div>
+      <div class="highlight" data-aos="zoom-in" data-aos-delay="300">
+        <div class="highlight-icon">🔒</div>
+        <h4>Reliable & Transparent</h4>
+      </div>
+      <div class="highlight" data-aos="zoom-in" data-aos-delay="400">
+        <div class="highlight-icon">⚡</div>
+        <h4>Scalable Tech Solutions</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio" id="portfolio">
+    <h3 data-aos="fade-up">Recent Work</h3>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&h=400&fit=crop" alt="Medical Management">
+        <span class="project-category">App</span>
+        <div class="portfolio-overlay">
+          <h4>Medimange Desktop App</h4>
+          <a href="#" class="view-project">View Project →</a>
+        </div>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=500&h=400&fit=crop" alt="Mobile Healthcare">
+        <span class="project-category">App</span>
+        <div class="portfolio-overlay">
+          <h4>Medimange Mobile App</h4>
+          <a href="#" class="view-project">View Project →</a>
+        </div>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=400&fit=crop" alt="Home Healthcare">
+        <span class="project-category">Web</span>
+        <div class="portfolio-overlay">
+          <h4>Your Home Our Care</h4>
+          <a href="#" class="view-project">View Project →</a>
+        </div>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=400&fit=crop" alt="Bike Rental">
+        <span class="project-category">App</span>
+        <div class="portfolio-overlay">
+          <h4>Ridengo</h4>
+          <a href="#" class="view-project">View Project →</a>
+        </div>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=400&fit=crop" alt="Text Editor">
+        <span class="project-category">App</span>
+        <div class="portfolio-overlay">
+          <h4>Textlite App</h4>
+          <a href="#" class="view-project">View Project →</a>
+        </div>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=400&fit=crop" alt="Hotel Booking">
+        <span class="project-category">Web</span>
+        <div class="portfolio-overlay">
+          <h4>Vila Booking System</h4>
+          <a href="#" class="view-project">View Project →</a>
+        </div>
+      </div>
+      <div class="portfolio-item" data-aos="fade-up" data-aos-delay="400">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&h=400&fit=crop" alt="Gym Management">
+        <span class="project-category">App</span>
+        <div class="portfolio-overlay">
+          <h4>Gymmange</h4>
+          <a href="#" class="view-project">View Project →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h3 data-aos="fade-up">Client Testimonials</h3>
+    <div class="testimonial-cards">
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+        <p>"VALVIX TECH transformed our clinic management completely. The app is intuitive, fast, and exactly what we needed."</p>
+        <div class="author">— Ankit, Clinic Owner</div>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+        <p>"Their attention to detail and commitment to quality is unmatched. The automation tools saved us countless hours."</p>
+        <div class="author">— Priya, Manager</div>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+        <p>"Professional, innovative, and transparent. VALVIX delivered beyond our expectations and continues to support us brilliantly."</p>
+        <div class="author">— Saurabh, CTO</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about" id="about">
+    <h3 data-aos="fade-up">About VALVIX TECH — Building India's Digital Future</h3>
+    <p class="about-mission" data-aos="fade-up" data-aos-delay="100"><strong>Mission:</strong> To redefine digital innovation by merging creativity with technology and delivering high-quality digital products that create measurable impact.</p>
+    <p class="about-vision" data-aos="fade-up" data-aos-delay="200"><strong>Vision:</strong> To empower every business with powerful digital solutions by 2030 and lead India's digital transformation.</p>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <h3 data-aos="fade-up">Let's Build Together</h3>
+    <a href="#contact" class="btn-primary" data-aos="fade-up" data-aos-delay="200">Start Your Project</a>
+  </section>
+
+  <!-- Contact Section with Email Integration -->
+  <section class="contact" id="contact">
+    <h3 data-aos="fade-up">Let's Connect</h3>
+    <form class="contact-form" id="contactForm" data-aos="fade-up" data-aos-delay="200">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Your Phone" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+    <div class="success-message" id="successMessage">
+      ✓ Thank you! Your message has been sent successfully.
+    </div>
+    <div class="contact-info" data-aos="fade-up" data-aos-delay="400">
+      <p><strong>📩 Email:</strong> <a href="mailto:officilvalvix@gmail.com">officiilvalvix@gmail.com</a></p>
+      <p><strong>📍 Location:</strong> India</p>
+      <div class="social-icons">
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+        </a>
+        <a href="https://www.instagram.com/valvixofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+        </a>
+        <a href="https://github.com" target="_blank" title="GitHub">
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="valvix.png" alt="VALVIX Logo" onerror="this.style.display='none';">
+        <div class="slogan">We See Value, Not Price</div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Connect With Us</h4>
+        <div class="social-icons">
+          <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+          </a>
+          <a href="https://www.instagram.com/valvixofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+          </a>
+          <a href="https://github.com" target="_blank" title="GitHub">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      © 2025 VALVIX TECH. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100
+    });
+
+    // Create starfield
+    const starfield = document.getElementById('starfield');
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      starfield.appendChild(star);
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.textContent = '☰';
+      });
+    });
+
+    // Contact Form Submission with Email
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const phone = formData.get('phone');
+      const message = formData.get('message');
+      
+      // Create mailto link with form data
+      const subject = encodeURIComponent(`New Contact Form Submission from ${name}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Phone: ${phone}\n\n` +
+        `Message:\n${message}`
+      );
+      
+      // Open email client
+      window.location.href = `mailto:officialvalvix@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Show success message
+      const successMessage = document.getElementById('successMessage');
+      successMessage.classList.add('show');
+      
+      // Reset form
+      this.reset();
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        successMessage.classList.remove('show');
+      }, 5000);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
